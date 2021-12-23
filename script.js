@@ -27,8 +27,10 @@ function countdown() {
       if (timeLeft > 1) {
         timer.textContent = "Timer: " + timeLeft + ' ';
         timeLeft--;
+        localStorage.setItem("timeLeft", timeLeft);
       } else if (timeLeft === 1) {
         timeLeft--;
+        localStorage.setItem("timeLeft", timeLeft);
       } else {
         timer.textContent = '';
         clearInterval(timeCycle);
@@ -37,12 +39,42 @@ function countdown() {
 }
 
 function displayQuestions () {
-    var q1 = document.createElement("h1")
+    var mainDiv = document.createElement("div");
+    var q1 = document.createElement("h1");
+    var answers = document.createElement("div");
+    var ans1 = document.createElement("button");
+    var ans2 = document.createElement("button");
+    var ans3 = document.createElement("button");
+    var ans4 = document.createElement("button");
     
-    q1.setAttribute("style", "text-align:center; margin:20px; padding-top:100px;")
-    q1.textContent = "What is the DOM?"
+    q1.setAttribute("style", "text-align:center; margin:20px; padding-top:100px;");
+    q1.textContent = "What is the DOM?";
 
-    document.body.append(q1);
+    answers.setAttribute("style", "display:flex; flex-direction:column; align-items:center;");
+
+    ans1.setAttribute("style", "margin:10px; padding:5px;");
+    ans1.textContent = "1.) Document Object Main ";
+    
+    ans2.setAttribute("style", "margin:10px; padding:5px;");
+    ans2.textContent = "2.) Document Object Model ";
+
+    ans3.setAttribute("style", "margin:10px; padding:5px;");
+    ans3.textContent = "3.) Document Original Module ";
+
+    ans4.setAttribute("style", "margin:10px; padding:5px;");
+    ans4.textContent = "4.) Diorama Object Main ";
+
+    document.body.append(mainDiv);
+    mainDiv.append(q1);
+    mainDiv.append(answers);
+    answers.append(ans1);
+    answers.append(ans2);
+    answers.append(ans3);
+    answers.append(ans4);
+
+    ans1.addEventListener("click", function () {
+       
+    })
 
 }
 
